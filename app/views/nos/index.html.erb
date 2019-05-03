@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Nos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>No</th>
+      <th>Arvore</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @nos.each do |no| %>
+      <tr>
+        <td><%= no.nome %></td>
+        <td><%= no.try(:no).try(:nome) %></td>
+        <td><%= no.try(:arvore).try(:nome) %></td>
+        <td><%= link_to 'Show', no %></td>
+        <td><%= link_to 'Edit', edit_no_path(no) %></td>
+        <td><%= link_to 'Destroy', no, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New No', new_no_path %>
